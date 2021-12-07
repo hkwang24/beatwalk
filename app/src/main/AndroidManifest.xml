@@ -9,13 +9,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+
+        <activity android:name="com.example.beatwalk.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.example.beatwalk.LandingPageActivity" />
+        <activity android:name="com.example.beatwalk.RegistrationActivity" />
+        <activity android:name="com.example.beatwalk.LoginActivity"/>
+        <activity android:name="com.example.beatwalk.ModifyPageActivity"/>
+        <activity android:name="com.example.beatwalk.ModifyActivity"/>
+        <activity android:name="com.example.beatwalk.AllPostsActivity"/>
+        <activity android:name="com.example.beatwalk.ReviewUserActivity"/>
+        <activity android:name="com.example.beatwalk.ViewAllActivity"/>
+        <activity android:name="com.example.beatwalk.CreatePostsActivity"/>
+        <activity android:name="com.example.beatwalk.YourPostActivity"/>
+        <activity android:name="com.example.beatwalk.WriteCommentActivity"/>
     </application>
+
 
 </manifest>
