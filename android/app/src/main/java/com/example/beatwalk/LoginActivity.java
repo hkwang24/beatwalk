@@ -30,7 +30,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void attemptLogin(View view) {
-
+        Intent i = new Intent(this, PlayMusic.class);
+        startActivityForResult(i, 2);
     }
 
     public void jumpToMain(View view) {
