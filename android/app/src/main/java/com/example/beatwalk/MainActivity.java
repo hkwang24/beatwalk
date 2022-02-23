@@ -28,6 +28,15 @@ public class MainActivity extends AppCompatActivity {
     CompositeDisposable compositeDisposable = new CompositeDisposable();
     IMyService iMyService;
 
+    // creates splash loading screen
+    public class SplashScreenActivity extends AppCompatActivity {
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            startActivity(new Intent(SplashScreenActivity.this, MainActivity.class));
+            finish();
+        }
+    }
 
     @Override
     protected void onStop() {
