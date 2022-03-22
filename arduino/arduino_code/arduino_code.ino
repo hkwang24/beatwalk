@@ -10,11 +10,21 @@ void setup() {
   pinMode(A2, OUTPUT);
   pinMode(A3, OUTPUT);
   pinMode(A4, OUTPUT);
+  // LED tests
+  pinMode(5, OUTPUT);
+  pinMode(6, OUTPUT);
+  pinMode(7, OUTPUT);
+  pinMode(8, OUTPUT);
+  pinMode(9, OUTPUT);
+  pinMode(10, OUTPUT);
+  pinMode(11, OUTPUT);
+  pinMode(12, OUTPUT);
 }
 
 void loop() {
 
   for (int i = 0; i < 16; i++) {
+    digitalWrite(i, HIGH);
     setMuxSelect(i);
     int voltVal = analogRead(A0);
     sendData(voltVal);
