@@ -24,13 +24,15 @@ void setup() {
 void loop() {
 
 
-  testLED();
-//  for (int i = 0; i < 16; i++) {
-//    digitalWrite(i, HIGH);
-//    setMuxSelect(i);
-//    int voltVal = analogRead(A0);
-//    sendData(voltVal);
-//  }
+//  testLED();
+  for (int i = 0; i < 16; i++) {
+    digitalWrite(i, HIGH);
+    setMuxSelect(i);
+    int voltVal = analogRead(A0);
+//    Serial.print();
+//    Serial.print(voltValn'\');
+    sendData(voltVal);
+  }
 }
 
 void setMuxSelect(int blockNum) {
