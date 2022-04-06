@@ -10,9 +10,12 @@
         <entry key="app/src/main/res/drawable/round_corners.xml" value="0.174" />
         <entry key="app/src/main/res/drawable/splash_background.xml" value="0.2015" />
         <entry key="app/src/main/res/drawable/splash_fg.xml" value="0.2015" />
+        <entry key="app/src/main/res/layout/activity_explore.xml" value="0.36666666666666664" />
         <entry key="app/src/main/res/layout/activity_landing_page.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.19375" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_play.xml" value="0.17831813576494426" />
+        <entry key="app/src/main/res/layout/activity_song_one.xml" value="0.12037037037037036" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2015" />
       </map>
     </option>

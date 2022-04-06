@@ -23,12 +23,14 @@ void setup() {
 
 void loop() {
 
-  for (int i = 0; i < 16; i++) {
-    digitalWrite(i, HIGH);
-    setMuxSelect(i);
-    int voltVal = analogRead(A0);
-    sendData(voltVal);
-  }
+
+  testLED();
+//  for (int i = 0; i < 16; i++) {
+//    digitalWrite(i, HIGH);
+//    setMuxSelect(i);
+//    int voltVal = analogRead(A0);
+//    sendData(voltVal);
+//  }
 }
 
 void setMuxSelect(int blockNum) {
@@ -39,4 +41,13 @@ void setMuxSelect(int blockNum) {
 
 void sendData(int voltVal) {
     BT.write(voltVal);
+}
+
+
+void testLED() {
+  for (int i = 5; i < 13; i++) {
+    digitalWrite(i, HIGH);
+    delay(1000);
+    digitalWrite(i, LOW);
+  }
 }
