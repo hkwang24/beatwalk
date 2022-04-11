@@ -3,14 +3,27 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3FBBEC">
+    android:background="#2DC4FF">
+
+    <ImageView
+        android:id="@+id/explore_title"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:src="@drawable/explore_title" />
 
     <ImageView
         android:id="@+id/block_base"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="50dp"
-        android:layout_centerInParent="true"
-        android:src="@drawable/block_base"/>
+        android:layout_width="342dp"
+        android:layout_height="220dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/block_base" />
+
+    <ImageView
+        android:id="@+id/staff"
+        android:layout_width="342dp"
+        android:layout_height="139dp"
+        android:layout_gravity="center"
+        android:src="@drawable/staff" />
 
 </LinearLayout>
