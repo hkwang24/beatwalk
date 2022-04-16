@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:drawable="@color/light_yellow"/>
+
+    <item
+        android:drawable="@drawable/mary_title"
+        android:height="285.5dp"
+        android:width="400dp" />
+
+    <item
+        android:drawable="@drawable/block_base"
+        android:width="315.18dp"
+        android:height="98.06dp"
+        android:gravity="center"
+        />
+
+
+    <!--
+
+    <item
+        android:drawable="@drawable/mary_icon"
+        android:layout_height="50px"
+        android:layout_width="50px" /> -->
+    <!--
+    <item
+        android:drawable="@drawable/block_base"/> -->
+
+</layer-list>

@@ -1,29 +1,284 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#2DC4FF">
 
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/explore_background">
+
+    <!--
     <ImageView
-        android:id="@+id/explore_title"
+        android:id="@+id/play_title"
         android:layout_width="match_parent"
-        android:layout_height="230dp"
-        android:src="@drawable/explore_title" />
+        android:layout_height="300dp"
+        android:src="@drawable/mary_title" />
+    -->
 
     <ImageView
-        android:id="@+id/block_base"
-        android:layout_width="342dp"
-        android:layout_height="220dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/block_base" />
+        android:id="@+id/let_pos1"
+        android:layout_width="39dp"
+        android:layout_height="56.03dp"
+        android:translationX="39dp"
+        android:translationY="-20.3dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/c_note"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/qnote_pos1"
+        android:layout_width="39dp"
+        android:layout_height="56.03dp"
+        android:translationX="39dp"
+        android:translationY="21dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/quarter_note"
+        android:visibility="invisible"
+        />
+
+    <ImageView
+        android:id="@+id/hnote_pos1"
+        android:layout_width="79dp"
+        android:layout_height="56.03dp"
+        android:translationX="39dp"
+        android:translationY="21dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/half_note"
+        android:visibility="invisible"
+        />
+
+    <ImageView
+        android:id="@+id/let_pos2"
+        android:layout_width="39dp"
+        android:layout_height="56.03dp"
+        android:translationX="79dp"
+        android:translationY="-20.3dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/d_note"
+        android:visibility="invisible"
+        />
+
+    <ImageView
+        android:id="@+id/qnote_pos2"
+        android:layout_width="39dp"
+        android:layout_height="56.03dp"
+        android:translationX="79dp"
+        android:translationY="21dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/quarter_note"
+        android:visibility="invisible"
+        />
+
+    <ImageView
+        android:id="@+id/hnote_pos2"
+        android:layout_width="79dp"
+        android:layout_height="56.03dp"
+        android:translationX="79dp"
+        android:translationY="21dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/half_note"
+        android:visibility="invisible"
+        />
+
+    <ImageView
+        android:id="@+id/let_pos3"
+        android:layout_width="39.4dp"
+        android:layout_height="56.03dp"
+        android:translationX="119dp"
+        android:translationY="-20.3dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/e_note"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/qnote_pos3"
+        android:layout_width="39dp"
+        android:layout_height="56.03dp"
+        android:translationX="119dp"
+        android:translationY="21dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/quarter_note"
+        android:visibility="invisible"
+        />
+
+    <ImageView
+        android:id="@+id/hnote_pos3"
+        android:layout_width="79dp"
+        android:layout_height="56.03dp"
+        android:translationX="119dp"
+        android:translationY="21dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/half_note"
+        android:visibility="invisible"
+        />
+
+    <ImageView
+        android:id="@+id/let_pos4"
+        android:layout_width="39.4dp"
+        android:layout_height="56.03dp"
+        android:translationX="158dp"
+        android:translationY="-20.3dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/e_note"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/qnote_pos4"
+        android:layout_width="39dp"
+        android:layout_height="56.03dp"
+        android:translationX="158dp"
+        android:translationY="21dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/quarter_note"
+        android:visibility="invisible"
+        />
+
+    <ImageView
+        android:id="@+id/hnote_pos4"
+        android:layout_width="79dp"
+        android:layout_height="56.03dp"
+        android:translationX="158dp"
+        android:translationY="21dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/half_note"
+        android:visibility="invisible"
+        />
+
+    <ImageView
+        android:id="@+id/let_pos5"
+        android:layout_width="39.4dp"
+        android:layout_height="56.03dp"
+        android:translationX="198dp"
+        android:translationY="-20.3dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/e_note"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/hnote_pos5"
+        android:layout_width="79dp"
+        android:layout_height="56.03dp"
+        android:translationX="198dp"
+        android:translationY="21dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/half_note"
+        android:visibility="invisible"
+        />
+
+    <ImageView
+        android:id="@+id/qnote_pos5"
+        android:layout_width="39dp"
+        android:layout_height="56.03dp"
+        android:translationX="198dp"
+        android:translationY="21dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/quarter_note"
+        android:visibility="invisible"
+        />
+
+
+    <ImageView
+        android:id="@+id/let_pos6"
+        android:layout_width="39.4dp"
+        android:layout_height="56.03dp"
+        android:translationX="237dp"
+        android:translationY="-20.3dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/e_note"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/qnote_pos6"
+        android:layout_width="39dp"
+        android:layout_height="56.03dp"
+        android:translationX="237dp"
+        android:translationY="21dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/quarter_note"
+        android:visibility="invisible"
+        />
+
+    <ImageView
+        android:id="@+id/hnote_pos6"
+        android:layout_width="79dp"
+        android:layout_height="56.03dp"
+        android:translationX="237dp"
+        android:translationY="21dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/half_note"
+        android:visibility="invisible"
+        />
+
+
+    <ImageView
+        android:id="@+id/let_pos7"
+        android:layout_width="39.4dp"
+        android:layout_height="56.03dp"
+        android:translationX="276dp"
+        android:translationY="-20.3dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/e_note"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/hnote_pos7"
+        android:layout_width="79dp"
+        android:layout_height="56.03dp"
+        android:translationX="276dp"
+        android:translationY="21dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/half_note"
+        android:visibility="invisible"
+        />
+
+    <ImageView
+        android:id="@+id/qnote_pos7"
+        android:layout_width="39dp"
+        android:layout_height="56.03dp"
+        android:translationX="276dp"
+        android:translationY="21dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/quarter_note"
+        android:visibility="invisible"
+        />
+
+
+    <ImageView
+        android:id="@+id/let_pos8"
+        android:layout_width="39.4dp"
+        android:layout_height="56.03dp"
+        android:translationX="315dp"
+        android:translationY="-20.3dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/e_note"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/qnote_pos8"
+        android:layout_width="39dp"
+        android:layout_height="56.03dp"
+        android:translationX="315dp"
+        android:translationY="21dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/quarter_note"
+        android:visibility="invisible"
+        />
 
     <ImageView
         android:id="@+id/staff"
-        android:layout_width="342dp"
-        android:layout_height="139dp"
-        android:layout_gravity="center"
-        android:src="@drawable/staff" />
+        android:layout_width="360dp"
+        android:layout_height="145.49dp"
+        android:translationY="150dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal= "true"
+        android:src="@drawable/staff"
+        />
 
-</LinearLayout>
+    <Button xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/update_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal= "true"
+        android:translationY="600dp"
+        android:text="Update Blocks" />
+
+
+</RelativeLayout>
