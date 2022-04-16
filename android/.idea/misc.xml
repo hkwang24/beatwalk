@@ -3,16 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Owner/Desktop/design/beatwalk/android/app/src/main/res/drawable/explore_background.xml" value="0.1" />
         <entry key="..\:/Users/Owner/Desktop/design/beatwalk/android/app/src/main/res/drawable/ic_launcher_background.xml" value="0.14635416666666667" />
-        <entry key="..\:/Users/Owner/Desktop/design/beatwalk/android/app/src/main/res/drawable/play_mode_background.xml" value="0.5" />
+        <entry key="..\:/Users/Owner/Desktop/design/beatwalk/android/app/src/main/res/drawable/play_mode_background.xml" value="0.2" />
         <entry key="..\:/Users/Owner/Desktop/design/beatwalk/android/app/src/main/res/drawable/splash_background.xml" value="0.14635416666666667" />
-        <entry key="..\:/Users/Owner/Desktop/design/beatwalk/android/app/src/main/res/layout/activity_explore.xml" value="0.1" />
+        <entry key="..\:/Users/Owner/Desktop/design/beatwalk/android/app/src/main/res/layout/activity_explore.xml" value="0.36" />
+        <entry key="..\:/Users/Owner/Desktop/design/beatwalk/android/app/src/main/res/layout/activity_landing_page.xml" value="0.1" />
         <entry key="..\:/Users/Owner/Desktop/design/beatwalk/android/app/src/main/res/layout/activity_main.xml" value="0.11197916666666667" />
         <entry key="..\:/Users/Owner/Desktop/design/beatwalk/android/app/src/main/res/layout/activity_play.xml" value="0.11197916666666667" />
+        <entry key="..\:/Users/Owner/Desktop/design/beatwalk/android/app/src/main/res/layout/activity_rate_users.xml" value="0.1" />
+        <entry key="..\:/Users/Owner/Desktop/design/beatwalk/android/app/src/main/res/layout/activity_rating.xml" value="0.1" />
         <entry key="..\:/Users/Owner/Desktop/design/beatwalk/android/app/src/main/res/layout/activity_registration.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/Owner/Desktop/design/beatwalk/android/app/src/main/res/layout/activity_song_one.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/Owner/Desktop/design/beatwalk/android/app/src/main/res/layout/all_posts_activity.xml" value="0.11197916666666667" />
         <entry key="..\:/Users/Owner/Desktop/design/beatwalk/android/app/src/main/res/layout/content_song_one.xml" value="0.268" />
+        <entry key="..\:/Users/Owner/Desktop/design/beatwalk/android/app/src/main/res/layout/create_posts_activity.xml" value="0.1" />
         <entry key="..\:/Users/Owner/Desktop/design/beatwalk/android/app/src/main/res/layout/play_music.xml" value="0.11197916666666667" />
         <entry key="..\:/Users/Owner/Desktop/design/beatwalk/android/app/src/main/res/layout/splash_screen.xml" value="0.11197916666666667" />
         <entry key="app/src/main/res/drawable-v24/bg_gradient.xml" value="0.2015" />

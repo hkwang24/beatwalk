@@ -7,8 +7,8 @@
 
     <item
         android:drawable="@drawable/explore_title"
-        android:height="220dp"
-        android:width="400dp" />
+        android:height="225.5dp"
+        android:width="410dp" />
 
     <item
         android:drawable="@drawable/block_base"
