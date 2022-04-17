@@ -22,17 +22,20 @@ void setup() {
 }
 
 void loop() {
-
-
-//  testLED();
-  for (int i = 0; i < 16; i++) {
-    digitalWrite(i, HIGH);
-    setMuxSelect(i);
-    int voltVal = analogRead(A0);
-//    Serial.print();
-//    Serial.print(voltValn'\');
-    sendData(voltVal);
+  // play
+  if (digitalRead(10)) {
+    play();
   }
+  // loop
+  let loop = 0;
+  loop = digitalRead(12);
+  while (loop) {
+    play();
+    if (digitalRead(12)) {
+      loop = 0;
+    }
+  }
+ 
 }
 
 void setMuxSelect(int blockNum) {
@@ -51,5 +54,23 @@ void testLED() {
     digitalWrite(i, HIGH);
     delay(1000);
     digitalWrite(i, LOW);
+  }
+}
+
+void play() {
+//  testLED();
+  for (int i = 0; i < 16; i++) {
+    // pause functionality
+    if (digitalRead(11)) {
+      while (!digitalRead(11)) {
+        
+      }
+    }
+    digitalWrite(i, HIGH);
+    setMuxSelect(i);
+    int voltVal = analogRead(A0);
+//    Serial.print();
+//    Serial.print(voltValn'\');
+    sendData(voltVal);
   }
 }
