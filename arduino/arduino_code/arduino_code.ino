@@ -1,5 +1,6 @@
 // bluetooth module
 #include <SoftwareSerial.h>
+#include "Thread.h"
 SoftwareSerial BT(2, 3);
 
 void setup() {
@@ -22,20 +23,16 @@ void setup() {
 }
 
 void loop() {
-  // play
+  checkBlocks();
+  // play pin
   if (digitalRead(10)) {
-    play();
+    playOnce();
   }
-  // loop
-  let loop = 0;
-  loop = digitalRead(12);
-  while (loop) {
-    play();
-    if (digitalRead(12)) {
-      loop = 0;
-    }
+  // loop pin
+  if (digitalRead(11)) {
+    playLoop();
   }
- 
+  
 }
 
 void setMuxSelect(int blockNum) {
@@ -57,20 +54,34 @@ void testLED() {
   }
 }
 
-void play() {
+void checkBlocks() {
 //  testLED();
   for (int i = 0; i < 16; i++) {
-    // pause functionality
-    if (digitalRead(11)) {
-      while (!digitalRead(11)) {
-        
-      }
-    }
-    digitalWrite(i, HIGH);
     setMuxSelect(i);
     int voltVal = analogRead(A0);
+    // check if its a pitch block
+    if (voltVal > 1000) {
+      // play sound and light up led
+    }
 //    Serial.print();
 //    Serial.print(voltValn'\');
     sendData(voltVal);
+  }
+}
+
+void playOnce() {
+  // play sound
+  // light up led
+  // throughout loop check stop pin
+  for (int i = 0; i < 16; i++) {
+    digitalWrite(i, HIGH);
+  }
+}
+
+void playLoop() {
+  while (true) {
+    playOnce();
+    // check stop pin here
+    // if so, break
   }
 }
