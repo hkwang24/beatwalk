@@ -24,11 +24,12 @@ import com.example.beatwalk.data.RegistrationStoreMongo;
 
 public class SongOne extends AppCompatActivity {
 
-    Bluetooth btHandler;
+
     private ProgressBar pgsBar;
     private int i = 0;
     public static Handler hndler;
     private boolean passes = true;
+    private Bluetooth btHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

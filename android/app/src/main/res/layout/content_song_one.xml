@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@drawable/play_mode_background">
 
     <!--
@@ -18,7 +18,7 @@
         android:id="@+id/let_pos1"
         android:layout_width="39dp"
         android:layout_height="56.03dp"
-        android:translationX="49dp"
+        android:translationX="35dp"
         android:translationY="-20.3dp"
         android:layout_centerVertical="true"
         android:src="@drawable/c_note"
@@ -28,18 +28,19 @@
         android:id="@+id/qnote_pos1"
         android:layout_width="49dp"
         android:layout_height="56.03dp"
-        android:translationX="44.5dp"
+        android:translationX="30dp"
         android:translationY="21dp"
         android:layout_centerVertical="true"
         android:src="@drawable/quarter_note"
         android:visibility="invisible"
+
         />
 
     <ImageView
         android:id="@+id/hnote_pos1"
         android:layout_width="79dp"
         android:layout_height="56.03dp"
-        android:translationX="48dp"
+        android:translationX="35dp"
         android:translationY="21dp"
         android:layout_centerVertical="true"
         android:src="@drawable/half_note"
@@ -50,7 +51,7 @@
         android:id="@+id/let_pos2"
         android:layout_width="39dp"
         android:layout_height="56.03dp"
-        android:translationX="89dp"
+        android:translationX="75dp"
         android:translationY="-20.3dp"
         android:layout_centerVertical="true"
         android:src="@drawable/d_note"
@@ -61,7 +62,7 @@
         android:id="@+id/qnote_pos2"
         android:layout_width="39dp"
         android:layout_height="56.03dp"
-        android:translationX="89dp"
+        android:translationX="75dp"
         android:translationY="21dp"
         android:layout_centerVertical="true"
         android:src="@drawable/quarter_note"
@@ -72,7 +73,7 @@
         android:id="@+id/hnote_pos2"
         android:layout_width="79dp"
         android:layout_height="56.03dp"
-        android:translationX="89dp"
+        android:translationX="75dp"
         android:translationY="21dp"
         android:layout_centerVertical="true"
         android:src="@drawable/half_note"
@@ -83,7 +84,7 @@
         android:id="@+id/let_pos3"
         android:layout_width="39.4dp"
         android:layout_height="56.03dp"
-        android:translationX="128dp"
+        android:translationX="114dp"
         android:translationY="-20.3dp"
         android:layout_centerVertical="true"
         android:src="@drawable/e_note"
@@ -94,7 +95,7 @@
         android:id="@+id/qnote_pos3"
         android:layout_width="39dp"
         android:layout_height="56.03dp"
-        android:translationX="128dp"
+        android:translationX="114dp"
         android:translationY="21dp"
         android:layout_centerVertical="true"
         android:src="@drawable/quarter_note"
@@ -105,7 +106,7 @@
         android:id="@+id/hnote_pos3"
         android:layout_width="79dp"
         android:layout_height="56.03dp"
-        android:translationX="128dp"
+        android:translationX="114dp"
         android:translationY="21dp"
         android:layout_centerVertical="true"
         android:src="@drawable/half_note"
@@ -116,7 +117,7 @@
         android:id="@+id/let_pos4"
         android:layout_width="39.4dp"
         android:layout_height="56.03dp"
-        android:translationX="167.5dp"
+        android:translationX="153dp"
         android:translationY="-20.3dp"
         android:layout_centerVertical="true"
         android:src="@drawable/e_note"
@@ -127,7 +128,7 @@
         android:id="@+id/qnote_pos4"
         android:layout_width="39dp"
         android:layout_height="56.03dp"
-        android:translationX="167.5dp"
+        android:translationX="153dp"
         android:translationY="21dp"
         android:layout_centerVertical="true"
         android:src="@drawable/quarter_note"
@@ -138,7 +139,7 @@
         android:id="@+id/hnote_pos4"
         android:layout_width="79dp"
         android:layout_height="56.03dp"
-        android:translationX="167.5dp"
+        android:translationX="153dp"
         android:translationY="21dp"
         android:layout_centerVertical="true"
         android:src="@drawable/half_note"
@@ -149,7 +150,7 @@
         android:id="@+id/let_pos5"
         android:layout_width="39.4dp"
         android:layout_height="56.03dp"
-        android:translationX="207dp"
+        android:translationX="193dp"
         android:translationY="-20.3dp"
         android:layout_centerVertical="true"
         android:src="@drawable/e_note"
@@ -159,7 +160,7 @@
         android:id="@+id/hnote_pos5"
         android:layout_width="79dp"
         android:layout_height="56.03dp"
-        android:translationX="207dp"
+        android:translationX="193dp"
         android:translationY="21dp"
         android:layout_centerVertical="true"
         android:src="@drawable/half_note"
@@ -170,7 +171,7 @@
         android:id="@+id/qnote_pos5"
         android:layout_width="39dp"
         android:layout_height="56.03dp"
-        android:translationX="207dp"
+        android:translationX="193dp"
         android:translationY="21dp"
         android:layout_centerVertical="true"
         android:src="@drawable/quarter_note"
@@ -182,7 +183,7 @@
         android:id="@+id/let_pos6"
         android:layout_width="39.4dp"
         android:layout_height="56.03dp"
-        android:translationX="246dp"
+        android:translationX="233dp"
         android:translationY="-20.3dp"
         android:layout_centerVertical="true"
         android:src="@drawable/e_note"
@@ -193,7 +194,7 @@
         android:id="@+id/qnote_pos6"
         android:layout_width="39dp"
         android:layout_height="56.03dp"
-        android:translationX="246dp"
+        android:translationX="233dp"
         android:translationY="21dp"
         android:layout_centerVertical="true"
         android:src="@drawable/quarter_note"
@@ -216,7 +217,7 @@
         android:id="@+id/let_pos7"
         android:layout_width="39.4dp"
         android:layout_height="56.03dp"
-        android:translationX="285dp"
+        android:translationX="270dp"
         android:translationY="-20.3dp"
         android:layout_centerVertical="true"
         android:src="@drawable/e_note"
@@ -227,7 +228,7 @@
         android:id="@+id/hnote_pos7"
         android:layout_width="79dp"
         android:layout_height="56.03dp"
-        android:translationX="285dp"
+        android:translationX="271dp"
         android:translationY="21dp"
         android:layout_centerVertical="true"
         android:src="@drawable/half_note"
@@ -238,7 +239,7 @@
         android:id="@+id/qnote_pos7"
         android:layout_width="39dp"
         android:layout_height="56.03dp"
-        android:translationX="285dp"
+        android:translationX="271dp"
         android:translationY="21dp"
         android:layout_centerVertical="true"
         android:src="@drawable/quarter_note"
@@ -250,7 +251,7 @@
         android:id="@+id/let_pos8"
         android:layout_width="39.4dp"
         android:layout_height="56.03dp"
-        android:translationX="324dp"
+        android:translationX="310dp"
         android:translationY="-20.3dp"
         android:layout_centerVertical="true"
         android:src="@drawable/e_note"
@@ -261,7 +262,7 @@
         android:id="@+id/qnote_pos8"
         android:layout_width="39dp"
         android:layout_height="56.03dp"
-        android:translationX="324dp"
+        android:translationX="310dp"
         android:translationY="21dp"
         android:layout_centerVertical="true"
         android:src="@drawable/quarter_note"
@@ -279,7 +280,7 @@
         android:max="100"
         android:minWidth="200dp"
         android:minHeight="50dp"
-        android:paddingTop="300dp"
+        android:paddingTop="350dp"
         android:progress="0" />
 
     <ImageView
@@ -288,7 +289,7 @@
         android:layout_height="300dp"
         android:layout_centerHorizontal="true"
         android:src="@drawable/mary_lyrics"
-        android:translationY="300dp" />
+        android:translationY="320dp" />
 
     <ImageView
         android:id="@+id/lyric1"
@@ -296,8 +297,8 @@
         android:layout_height="52dp"
         android:layout_centerVertical="true"
         android:src="@drawable/ma_syllable"
-        android:translationX="55dp"
-        android:translationY="75.5dp"
+        android:translationX="41dp"
+        android:translationY="82.5dp"
         android:visibility="invisible" />
 
     <ImageView
@@ -306,8 +307,8 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:src="@drawable/ry_syllable"
-        android:translationX="97.5dp"
-        android:translationY="74.5dp"
+        android:translationX="82.5dp"
+        android:translationY="81.5dp"
         android:visibility="invisible" />
 
     <ImageView
@@ -316,8 +317,8 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:src="@drawable/had_syllable"
-        android:translationX="131.2dp"
-        android:translationY="74.75dp"
+        android:translationX="116.2dp"
+        android:translationY="81.75dp"
         android:visibility="invisible" />
 
     <ImageView
@@ -326,8 +327,8 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:src="@drawable/a_syllable"
-        android:translationX="184dp"
-        android:translationY="74.2dp"
+        android:translationX="169dp"
+        android:translationY="81.2dp"
         android:visibility="invisible" />
 
     <ImageView
@@ -336,8 +337,8 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:src="@drawable/lit_syllable"
-        android:translationX="217.2dp"
-        android:translationY="74dp"
+        android:translationX="202.2dp"
+        android:translationY="81dp"
         android:visibility="invisible" />
 
     <ImageView
@@ -346,8 +347,8 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:src="@drawable/tle_syllable"
-        android:translationX="256dp"
-        android:translationY="75.1dp"
+        android:translationX="241dp"
+        android:translationY="82.1dp"
         android:visibility="invisible" />
 
     <ImageView
@@ -356,8 +357,8 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:src="@drawable/lamb_syllable"
-        android:translationX="306.2dp"
-        android:translationY="75.2dp"
+        android:translationX="291.2dp"
+        android:translationY="82.2dp"
         android:visibility="invisible" />
 
     <ImageView
@@ -366,9 +367,10 @@
         android:layout_height="56.03dp"
         android:layout_centerVertical="true"
         android:src="@drawable/error"
-        android:translationX="58dp"
+        android:translationX="41dp"
         android:translationY="120dp"
-        android:visibility="invisible" />
+        android:visibility="invisible"
+         />
 
     <ImageView
         android:id="@+id/error2"
@@ -376,9 +378,10 @@
         android:layout_height="56.03dp"
         android:layout_centerVertical="true"
         android:src="@drawable/error"
-        android:translationX="98dp"
+        android:translationX="81dp"
         android:translationY="120dp"
-        android:visibility="invisible" />
+        android:visibility="invisible"
+         />
 
     <ImageView
         android:id="@+id/error3"
@@ -386,9 +389,10 @@
         android:layout_height="56.03dp"
         android:layout_centerVertical="true"
         android:src="@drawable/error"
-        android:translationX="138dp"
+        android:translationX="121dp"
         android:translationY="120dp"
-        android:visibility="invisible" />
+        android:visibility="invisible"
+        />
 
     <ImageView
         android:id="@+id/error4"
@@ -396,9 +400,10 @@
         android:layout_height="56.03dp"
         android:layout_centerVertical="true"
         android:src="@drawable/error"
-        android:translationX="176dp"
+        android:translationX="161dp"
         android:translationY="120dp"
-        android:visibility="invisible" />
+        android:visibility="invisible"
+         />
 
     <ImageView
         android:id="@+id/error5"
@@ -406,9 +411,10 @@
         android:layout_height="56.03dp"
         android:layout_centerVertical="true"
         android:src="@drawable/error"
-        android:translationX="216dp"
+        android:translationX="201dp"
         android:translationY="120dp"
-        android:visibility="invisible" />
+        android:visibility="invisible"
+         />
 
     <ImageView
         android:id="@+id/error6"
@@ -416,9 +422,10 @@
         android:layout_height="56.03dp"
         android:layout_centerVertical="true"
         android:src="@drawable/error"
-        android:translationX="256dp"
+        android:translationX="241dp"
         android:translationY="120dp"
-        android:visibility="invisible" />
+        android:visibility="invisible"
+        />
 
     <ImageView
         android:id="@+id/error7"
@@ -426,9 +433,10 @@
         android:layout_height="56.03dp"
         android:layout_centerVertical="true"
         android:src="@drawable/error"
-        android:translationX="295dp"
+        android:translationX="280dp"
         android:translationY="120dp"
-        android:visibility="invisible" />
+        android:visibility="invisible"
+        />
 
     <ImageView
         android:id="@+id/error8"
@@ -436,9 +444,10 @@
         android:layout_height="56.03dp"
         android:layout_centerVertical="true"
         android:src="@drawable/error"
-        android:translationX="334dp"
+        android:translationX="319dp"
         android:translationY="120dp"
-        android:visibility="invisible" />
+        android:visibility="invisible"
+         />
 
     <Button
         android:id="@+id/update_button"
