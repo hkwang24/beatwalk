@@ -40,8 +40,8 @@ public class SongOne extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                char[] notes = {'c', 'b', ' ', 'a', ' ', ' ', 'e', 'f'};
-                char[] rhythm = {'q','h', ' ', 'h', ' ', 'r', 'q', 'q'};
+                char[] notes = {'e', 'd', 'c', 'd', 'e', 'e', 'e', ' '};
+                char[] rhythm = {'q', 'q', 'q', 'q', 'q', 'q', 'h', ' '};
                 int[] note_ids = {R.id.let_pos1, R.id.let_pos2, R.id.let_pos3, R.id.let_pos4, R.id.let_pos5, R.id.let_pos6, R.id.let_pos7, R.id.let_pos8};
                 int[] q_note_ids = {R.id.qnote_pos1, R.id.qnote_pos2, R.id.qnote_pos3, R.id.qnote_pos4, R.id.qnote_pos5, R.id.qnote_pos6, R.id.qnote_pos7, R.id.qnote_pos8};
                 int[] h_note_ids = {R.id.hnote_pos1, R.id.hnote_pos2, R.id.hnote_pos3, R.id.hnote_pos4, R.id.hnote_pos5, R.id.hnote_pos6, R.id.hnote_pos7};
@@ -88,7 +88,11 @@ public class SongOne extends AppCompatActivity {
                     }
                 }
 
-                final boolean[] correct = {true, true, false, false, false, true, false, false};
+                char[][] input = {notes, rhythm};
+                char[] expected_letters = {'e', 'd', 'c', 'd', 'e', 'e', 'e', ' '};
+                char[] expected_notes = {'q', 'q', 'q', 'q', 'q', 'q', 'h', ' '};
+                char[][] expected = {expected_letters, expected_notes};
+                final boolean[] correct = checkSong(input, expected);
 
                 final ImageView lyric1 = (ImageView) findViewById(R.id.lyric1);
                 final ImageView lyric2 = (ImageView) findViewById(R.id.lyric2);
@@ -223,6 +227,17 @@ public class SongOne extends AppCompatActivity {
 
             }
         });
+    }
+
+    public boolean[] checkSong(char[][] input, char[][] expected) {
+        boolean array[];
+        array = new boolean[8];
+        for (int i = 0; i < input[0].length; i++) {
+            if (input[0][i] == expected[0][i] && input[1][i] == expected[1][i]) {
+                array[i] = true;
+            }
+        }
+        return array;
     }
 }
 
