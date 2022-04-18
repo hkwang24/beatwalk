@@ -7,7 +7,7 @@
         <entry key="..\:/Users/Owner/Desktop/design/beatwalk/android/app/src/main/res/drawable/ic_launcher_background.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/Owner/Desktop/design/beatwalk/android/app/src/main/res/drawable/play_mode_background.xml" value="0.2" />
         <entry key="..\:/Users/Owner/Desktop/design/beatwalk/android/app/src/main/res/drawable/splash_background.xml" value="0.14635416666666667" />
-        <entry key="..\:/Users/Owner/Desktop/design/beatwalk/android/app/src/main/res/layout/activity_explore.xml" value="0.36" />
+        <entry key="..\:/Users/Owner/Desktop/design/beatwalk/android/app/src/main/res/layout/activity_explore.xml" value="0.2716417910447761" />
         <entry key="..\:/Users/Owner/Desktop/design/beatwalk/android/app/src/main/res/layout/activity_landing_page.xml" value="0.1" />
         <entry key="..\:/Users/Owner/Desktop/design/beatwalk/android/app/src/main/res/layout/activity_main.xml" value="0.11197916666666667" />
         <entry key="..\:/Users/Owner/Desktop/design/beatwalk/android/app/src/main/res/layout/activity_play.xml" value="0.11197916666666667" />
@@ -38,7 +38,7 @@
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

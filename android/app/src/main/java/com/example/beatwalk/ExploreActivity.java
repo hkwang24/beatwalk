@@ -27,8 +27,8 @@ public class ExploreActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                char[] notes = {' ', 'd', ' ', 'e', ' ', 'c', 'b', 'f'};
-                char[] rhythm = {'r','h', ' ', 'h', ' ', 'q', 'q', 'q'};
+                char[] notes = {' ', 'b', 'c', 'd', 'e', 'c', 'g', 'f'};
+                char[] rhythm = {'r','q', 'q', 'q', 'q', 'q', 'q', 'q'};
                 int[] note_ids = {R.id.let_pos1, R.id.let_pos2, R.id.let_pos3, R.id.let_pos4, R.id.let_pos5, R.id.let_pos6, R.id.let_pos7, R.id.let_pos8};
                 int[] q_note_ids = {R.id.qnote_pos1, R.id.qnote_pos2, R.id.qnote_pos3, R.id.qnote_pos4, R.id.qnote_pos5, R.id.qnote_pos6, R.id.qnote_pos7, R.id.qnote_pos8};
                 int[] h_note_ids = {R.id.hnote_pos1, R.id.hnote_pos2, R.id.hnote_pos3, R.id.hnote_pos4, R.id.hnote_pos5, R.id.hnote_pos6, R.id.hnote_pos7};
@@ -41,37 +41,37 @@ public class ExploreActivity extends AppCompatActivity {
                     if (notes[i] == 'a') {
                         note_block.setImageResource(R.drawable.a_note);
                         note_block.setVisibility(View.VISIBLE);
-                        notation_index.setTranslationY(493);
+                        notation_index.setTranslationY(533);
                         notation_index.setVisibility(View.VISIBLE);
                     } else if (notes[i] == 'b') {
                         note_block.setImageResource(R.drawable.b_note);
                         note_block.setVisibility(View.VISIBLE);
-                        notation_index.setTranslationY(467);
+                        notation_index.setTranslationY(507);
                         notation_index.setVisibility(View.VISIBLE);
                     } else if (notes[i] == 'c') {
                         note_block.setImageResource(R.drawable.c_note);
                         note_block.setVisibility(View.VISIBLE);
-                        notation_index.setTranslationY(615);
+                        notation_index.setTranslationY(655);
                         notation_index.setVisibility(View.VISIBLE);
                     } else if (notes[i] == 'd') {
                         note_block.setImageResource(R.drawable.d_note);
                         note_block.setVisibility(View.VISIBLE);
-                        notation_index.setTranslationY(587);
+                        notation_index.setTranslationY(622);
                         notation_index.setVisibility(View.VISIBLE);
                     } else if (notes[i] == 'e') {
                         note_block.setImageResource(R.drawable.e_note);
                         note_block.setVisibility(View.VISIBLE);
-                        notation_index.setTranslationY(560);
+                        notation_index.setTranslationY(606);
                         notation_index.setVisibility(View.VISIBLE);
                     } else if (notes[i] == 'f') {
                         note_block.setImageResource(R.drawable.f_note);
                         note_block.setVisibility(View.VISIBLE);
-                        notation_index.setTranslationY(540);
+                        notation_index.setTranslationY(580);
                         notation_index.setVisibility(View.VISIBLE);
                     } else if (notes[i] == 'g') {
                         note_block.setImageResource(R.drawable.g_note);
                         note_block.setVisibility(View.VISIBLE);
-                        notation_index.setTranslationY(512);
+                        notation_index.setTranslationY(552);
                         notation_index.setVisibility(View.VISIBLE);
                     }
                 }
@@ -93,7 +93,7 @@ public class ExploreActivity extends AppCompatActivity {
                         rhy_block.setImageResource(R.drawable.rest_note);
                         rhy_block.setVisibility(View.VISIBLE);
                         notation_index.setImageResource(R.drawable.rest_notation);
-                        notation_index.setTranslationY(496);
+                        notation_index.setTranslationY(527);
                         notation_index.setVisibility(View.VISIBLE);
                     } else if (rhythm[i] == 'h') {
                         ImageView rhy_block = (ImageView) findViewById(h_note_ids[i]);
