@@ -11,7 +11,7 @@
         android:width="410dp" />
 
     <item
-        android:drawable="@drawable/block_base"
+        android:drawable="@drawable/mary_block_base"
         android:width="315.18dp"
         android:height="98.06dp"
         android:gravity="center"

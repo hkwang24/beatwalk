@@ -18,4 +18,12 @@
         android:layout_gravity="center"
         android:src="@drawable/block_base" />
 
+    <ImageView
+        android:id="@+id/lyrics"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="-400dp"
+        android:src="@drawable/mary_lyrics" />
+
 </LinearLayout>
