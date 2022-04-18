@@ -19,10 +19,11 @@ void setup() {
   pinMode(10, OUTPUT);
   pinMode(11, OUTPUT);
   pinMode(12, OUTPUT);
+  BT.write("TEST");
 }
 
 void loop() {
-  checkBlocks();
+//  checkBlocks();
   // play pin
   if (digitalRead(10)) {
     playOnce();
@@ -56,14 +57,14 @@ void testLED() {
 void checkBlocks() {
 //  testLED();
   for (int i = 0; i < 16; i++) {
+    delay(1000);
     setMuxSelect(i);
     int voltVal = analogRead(A0);
     // check if its a pitch block
     if (voltVal > 1000) {
       // play sound and light up led
     }
-//    Serial.print();
-//    Serial.print(voltValn'\');
+    Serial.println(voltVal);
     sendData(voltVal);
   }
 }
