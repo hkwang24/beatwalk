@@ -2,19 +2,26 @@ package com.example.beatwalk;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ExploreActivity extends AppCompatActivity {
 
+    private ProgressBar pgsBar;
+    private int i = 0;
+    private Handler hdlr = new Handler();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_explore);
 
+        pgsBar = (ProgressBar) findViewById(R.id.pBar);
 
         Button button= (Button)findViewById(R.id.update_button);
         button.setOnClickListener(new View.OnClickListener() {
@@ -100,6 +107,29 @@ public class ExploreActivity extends AppCompatActivity {
 
                     }
                 }
+
+
+                i = pgsBar.getProgress();
+                new Thread(new Runnable() {
+                    public void run() {
+                        while (i < 100) {
+                            i += 1;
+                            // Update the progress bar and display the current value in text view
+                            hdlr.post(new Runnable() {
+                                public void run() {
+                                    pgsBar.setProgress(i);
+                                }
+                            });
+                            try {
+                                // Sleep for 100 milliseconds to show the progress slowly.
+                                Thread.sleep(50);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        pgsBar.setProgress(0);
+                    }
+                }).start();
             }
         });
     }
