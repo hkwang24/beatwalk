@@ -22,7 +22,7 @@ import com.example.beatwalk.data.RegistrationStoreMongo;
 
 public class SongOne extends AppCompatActivity {
 
-    Bluetooth btHandler;
+
     private ProgressBar pgsBar;
     private int i = 0;
     private Handler hdlr = new Handler();
