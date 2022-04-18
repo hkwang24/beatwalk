@@ -3,6 +3,7 @@ package com.example.beatwalk;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,6 +23,10 @@ import com.example.beatwalk.data.RegistrationStoreMongo;
 public class SongOne extends AppCompatActivity {
 
     Bluetooth btHandler;
+    private ProgressBar pgsBar;
+    private int i = 0;
+    private Handler hdlr = new Handler();
+    private boolean passes = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +37,11 @@ public class SongOne extends AppCompatActivity {
         System.out.println("Trying to set up bluetooth");
         btHandler.setup();
         System.out.println("Bluetooth setup");
+
+        pgsBar = (ProgressBar) findViewById(R.id.pBar);
+
+        // btHandler = new Bluetooth();
+        // btHandler.setup();
 
         Button button= (Button)findViewById(R.id.update_button);
         button.setOnClickListener(new View.OnClickListener() {
@@ -86,6 +97,140 @@ public class SongOne extends AppCompatActivity {
                         rhy_block.setVisibility(View.VISIBLE);
                     }
                 }
+
+                final boolean[] correct = {true, true, false, false, false, true, false, false};
+
+                final ImageView lyric1 = (ImageView) findViewById(R.id.lyric1);
+                final ImageView lyric2 = (ImageView) findViewById(R.id.lyric2);
+                final ImageView lyric3 = (ImageView) findViewById(R.id.lyric3);
+                final ImageView lyric4 = (ImageView) findViewById(R.id.lyric4);
+                final ImageView lyric5 = (ImageView) findViewById(R.id.lyric5);
+                final ImageView lyric6 = (ImageView) findViewById(R.id.lyric6);
+                final ImageView lyric7 = (ImageView) findViewById(R.id.lyric7);
+
+                final ImageView error1 = (ImageView) findViewById(R.id.error1);
+                final ImageView error2 = (ImageView) findViewById(R.id.error2);
+                final ImageView error3 = (ImageView) findViewById(R.id.error3);
+                final ImageView error4 = (ImageView) findViewById(R.id.error4);
+                final ImageView error5 = (ImageView) findViewById(R.id.error5);
+                final ImageView error6 = (ImageView) findViewById(R.id.error6);
+                final ImageView error7 = (ImageView) findViewById(R.id.error7);
+                final ImageView error8 = (ImageView) findViewById(R.id.error8);
+
+                final ImageView tryAgain = (ImageView) findViewById(R.id.try_again);
+                final ImageView greatJob = (ImageView) findViewById(R.id.great_job);
+
+                for (int i = 0; i < 8; i++){
+                    if (!correct[i]) {
+                        passes = false;
+                    }
+                }
+
+                i = pgsBar.getProgress();
+                new Thread(new Runnable() {
+                    public void run() {
+                        while (i < 100) {
+                            i += 1;
+                            // Update the progress bar and display the current value in text view
+                            hdlr.post(new Runnable() {
+                                public void run() {
+                                    if (i == 2) {
+                                        lyric1.setVisibility(View.VISIBLE);
+                                        if (!correct[0]) {
+                                            error1.setVisibility(View.VISIBLE);
+                                        }
+                                    }
+                                    if (i == 15) {
+                                        lyric2.setVisibility(View.VISIBLE);
+                                        if (!correct[1]) {
+                                            error2.setVisibility(View.VISIBLE);
+                                        }
+                                    }
+                                    if (i == 27) {
+                                        lyric3.setVisibility(View.VISIBLE);
+                                        if (!correct[2]) {
+                                            error3.setVisibility(View.VISIBLE);
+                                        }
+                                    }
+                                    if (i == 40) {
+                                        lyric4.setVisibility(View.VISIBLE);
+                                        if (!correct[3]) {
+                                            error4.setVisibility(View.VISIBLE);
+                                        }
+                                    }
+                                    if (i == 52) {
+                                        lyric5.setVisibility(View.VISIBLE);
+                                        if (!correct[4]) {
+                                            error5.setVisibility(View.VISIBLE);
+                                        }
+                                    }
+                                    if (i == 65) {
+                                        lyric6.setVisibility(View.VISIBLE);
+                                        if (!correct[5]) {
+                                            error6.setVisibility(View.VISIBLE);
+                                        }
+                                    }
+                                    if (i == 77) {
+                                        lyric7.setVisibility(View.VISIBLE);
+                                        if (!correct[6]) {
+                                            error7.setVisibility(View.VISIBLE);
+                                        }
+                                    }
+                                    if (i == 90) {
+                                        if (!correct[7]) {
+                                            error8.setVisibility(View.VISIBLE);
+                                        }
+                                    }
+                                    pgsBar.setProgress(i);
+                                }
+                            });
+                            try {
+                                // Sleep for 100 milliseconds to show the progress slowly.
+                                Thread.sleep(50);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                        }
+
+                        hdlr.post(new Runnable() {
+                            public void run() {
+                                if (passes) {
+                                    greatJob.setVisibility(View.VISIBLE);
+                                } else {
+                                    tryAgain.setVisibility(View.VISIBLE);
+                                }
+                            }
+                        });
+                        try {
+                            // Sleep for 100 milliseconds to show the progress slowly.
+                            Thread.sleep(3000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+
+                        pgsBar.setProgress(0);
+                        lyric1.setVisibility(View.INVISIBLE);
+                        lyric2.setVisibility(View.INVISIBLE);
+                        lyric3.setVisibility(View.INVISIBLE);
+                        lyric4.setVisibility(View.INVISIBLE);
+                        lyric5.setVisibility(View.INVISIBLE);
+                        lyric6.setVisibility(View.INVISIBLE);
+                        lyric7.setVisibility(View.INVISIBLE);
+
+                        error1.setVisibility(View.INVISIBLE);
+                        error2.setVisibility(View.INVISIBLE);
+                        error3.setVisibility(View.INVISIBLE);
+                        error4.setVisibility(View.INVISIBLE);
+                        error5.setVisibility(View.INVISIBLE);
+                        error6.setVisibility(View.INVISIBLE);
+                        error7.setVisibility(View.INVISIBLE);
+                        error8.setVisibility(View.INVISIBLE);
+
+                        greatJob.setVisibility(View.INVISIBLE);
+                        tryAgain.setVisibility(View.INVISIBLE);
+                    }
+                }).start();
+
             }
         });
     }

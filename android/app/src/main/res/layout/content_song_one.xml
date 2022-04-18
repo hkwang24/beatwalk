@@ -268,13 +268,199 @@
         android:visibility="invisible"
         />
 
-    <Button xmlns:android="http://schemas.android.com/apk/res/android"
+    <ProgressBar
+        android:id="@+id/pBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="310dp"
+        android:layout_height="550dp"
+        android:layout_centerHorizontal="true"
+        android:indeterminate="false"
+        android:indeterminateTint="#FFFFFF"
+        android:max="100"
+        android:minWidth="200dp"
+        android:minHeight="50dp"
+        android:paddingTop="300dp"
+        android:progress="0" />
+
+    <ImageView
+        android:id="@+id/lyrics"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/mary_lyrics"
+        android:translationY="300dp" />
+
+    <ImageView
+        android:id="@+id/lyric1"
+        android:layout_width="28dp"
+        android:layout_height="52dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ma_syllable"
+        android:translationX="55dp"
+        android:translationY="75.5dp"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/lyric2"
+        android:layout_width="23dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ry_syllable"
+        android:translationX="97.5dp"
+        android:translationY="74.5dp"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/lyric3"
+        android:layout_width="38dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:src="@drawable/had_syllable"
+        android:translationX="131.2dp"
+        android:translationY="74.75dp"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/lyric4"
+        android:layout_width="12dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:src="@drawable/a_syllable"
+        android:translationX="184dp"
+        android:translationY="74.2dp"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/lyric5"
+        android:layout_width="27dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:src="@drawable/lit_syllable"
+        android:translationX="217.2dp"
+        android:translationY="74dp"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/lyric6"
+        android:layout_width="32dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:src="@drawable/tle_syllable"
+        android:translationX="256dp"
+        android:translationY="75.1dp"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/lyric7"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:src="@drawable/lamb_syllable"
+        android:translationX="306.2dp"
+        android:translationY="75.2dp"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/error1"
+        android:layout_width="20dp"
+        android:layout_height="56.03dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/error"
+        android:translationX="58dp"
+        android:translationY="120dp"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/error2"
+        android:layout_width="20dp"
+        android:layout_height="56.03dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/error"
+        android:translationX="98dp"
+        android:translationY="120dp"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/error3"
+        android:layout_width="20dp"
+        android:layout_height="56.03dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/error"
+        android:translationX="138dp"
+        android:translationY="120dp"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/error4"
+        android:layout_width="20dp"
+        android:layout_height="56.03dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/error"
+        android:translationX="176dp"
+        android:translationY="120dp"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/error5"
+        android:layout_width="20dp"
+        android:layout_height="56.03dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/error"
+        android:translationX="216dp"
+        android:translationY="120dp"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/error6"
+        android:layout_width="20dp"
+        android:layout_height="56.03dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/error"
+        android:translationX="256dp"
+        android:translationY="120dp"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/error7"
+        android:layout_width="20dp"
+        android:layout_height="56.03dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/error"
+        android:translationX="295dp"
+        android:translationY="120dp"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/error8"
+        android:layout_width="20dp"
+        android:layout_height="56.03dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/error"
+        android:translationX="334dp"
+        android:translationY="120dp"
+        android:visibility="invisible" />
+
+    <Button
         android:id="@+id/update_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal= "true"
-        android:translationY="500dp"
-        android:text="Update Blocks" />
+        android:layout_centerHorizontal="true"
+        android:text="Update Blocks"
+        android:translationY="600dp" />
+
+    <ImageView
+        android:id="@+id/try_again"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/try_again"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/great_job"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/great_job"
+        android:visibility="invisible" />
 
 
 </RelativeLayout>
