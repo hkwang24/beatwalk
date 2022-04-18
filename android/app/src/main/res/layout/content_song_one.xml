@@ -268,6 +268,20 @@
         android:visibility="invisible"
         />
 
+    <ProgressBar
+        android:id="@+id/pBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="310dp"
+        android:layout_height="550dp"
+        android:layout_centerHorizontal="true"
+        android:indeterminate="false"
+        android:indeterminateTint="#FFFFFF"
+        android:max="100"
+        android:minWidth="200dp"
+        android:minHeight="50dp"
+        android:paddingTop="300dp"
+        android:progress="0" />
+
     <Button xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/update_button"
         android:layout_width="wrap_content"

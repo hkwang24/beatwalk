@@ -273,11 +273,12 @@
         android:layout_width="310dp"
         android:layout_height="550dp"
         android:layout_centerHorizontal="true"
-        android:indeterminateTint="#FFFFFF"
         android:indeterminate="false"
+        android:indeterminateTint="#FFFFFF"
         android:max="100"
         android:minWidth="200dp"
         android:minHeight="50dp"
+        android:paddingTop="300dp"
         android:progress="0" />
 
     <ImageView
