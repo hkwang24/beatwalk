@@ -7,8 +7,8 @@
 
     <item
         android:drawable="@drawable/mary_title"
-        android:height="292.64dp"
-        android:width="410dp" />
+        android:height="285.5dp"
+        android:width="400dp" />
 
     <item
         android:drawable="@drawable/mary_block_base"

@@ -1,5 +1,6 @@
 package com.example.beatwalk;
 
+import android.Manifest;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.example.beatwalk.R;
 import com.example.beatwalk.bluetooth.Bluetooth;
@@ -22,27 +24,31 @@ import com.example.beatwalk.data.RegistrationStoreMongo;
 
 public class SongOne extends AppCompatActivity {
 
-    Bluetooth btHandler;
+
     private ProgressBar pgsBar;
     private int i = 0;
-    private Handler hdlr = new Handler();
     private boolean passes = true;
+    private Bluetooth btHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_song_one);
 
-        pgsBar = (ProgressBar) findViewById(R.id.pBar);
+        btHandler = new Bluetooth();
+        System.out.println("Trying to set up bluetooth");
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.BLUETOOTH_ADMIN}, 0);
+        btHandler.setup();
+        // CHECKING PERMISSIONS HERE
 
-        // btHandler = new Bluetooth();
-        // btHandler.setup();
+        pgsBar = (ProgressBar) findViewById(R.id.pBar);
 
         Button button= (Button)findViewById(R.id.update_button);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
-                // String msg = btHandler.getMessage();
+              System.out.println("BUTTON PRESSED");
+//
+              String msg = btHandler.getMessage();
 
                 char[] notes = {'c', 'b', ' ', 'a', ' ', ' ', 'e', 'f'};
                 char[] rhythm = {'q','h', ' ', 'h', ' ', 'r', 'q', 'q'};
@@ -126,80 +132,54 @@ public class SongOne extends AppCompatActivity {
                         while (i < 100) {
                             i += 1;
                             // Update the progress bar and display the current value in text view
-                            hdlr.post(new Runnable() {
-                                public void run() {
-                                    if (i == 2) {
-                                        lyric1.setVisibility(View.VISIBLE);
-                                        if (!correct[0]) {
-                                            error1.setVisibility(View.VISIBLE);
-                                        }
-                                    }
-                                    if (i == 15) {
-                                        lyric2.setVisibility(View.VISIBLE);
-                                        if (!correct[1]) {
-                                            error2.setVisibility(View.VISIBLE);
-                                        }
-                                    }
-                                    if (i == 27) {
-                                        lyric3.setVisibility(View.VISIBLE);
-                                        if (!correct[2]) {
-                                            error3.setVisibility(View.VISIBLE);
-                                        }
-                                    }
-                                    if (i == 40) {
-                                        lyric4.setVisibility(View.VISIBLE);
-                                        if (!correct[3]) {
-                                            error4.setVisibility(View.VISIBLE);
-                                        }
-                                    }
-                                    if (i == 52) {
-                                        lyric5.setVisibility(View.VISIBLE);
-                                        if (!correct[4]) {
-                                            error5.setVisibility(View.VISIBLE);
-                                        }
-                                    }
-                                    if (i == 65) {
-                                        lyric6.setVisibility(View.VISIBLE);
-                                        if (!correct[5]) {
-                                            error6.setVisibility(View.VISIBLE);
-                                        }
-                                    }
-                                    if (i == 77) {
-                                        lyric7.setVisibility(View.VISIBLE);
-                                        if (!correct[6]) {
-                                            error7.setVisibility(View.VISIBLE);
-                                        }
-                                    }
-                                    if (i == 90) {
-                                        if (!correct[7]) {
-                                            error8.setVisibility(View.VISIBLE);
-                                        }
-                                    }
-                                    pgsBar.setProgress(i);
-                                }
-                            });
-                            try {
-                                // Sleep for 100 milliseconds to show the progress slowly.
-                                Thread.sleep(50);
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
-                        }
-
-                        hdlr.post(new Runnable() {
-                            public void run() {
-                                if (passes) {
-                                    greatJob.setVisibility(View.VISIBLE);
-                                } else {
-                                    tryAgain.setVisibility(View.VISIBLE);
+                            if (i == 2) {
+                                lyric1.setVisibility(View.VISIBLE);
+                                if (!correct[0]) {
+                                    error1.setVisibility(View.VISIBLE);
                                 }
                             }
-                        });
-                        try {
-                            // Sleep for 100 milliseconds to show the progress slowly.
-                            Thread.sleep(3000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
+                            if (i == 15) {
+                                lyric2.setVisibility(View.VISIBLE);
+                                if (!correct[1]) {
+                                    error2.setVisibility(View.VISIBLE);
+                                }
+                            }
+                            if (i == 27) {
+                                lyric3.setVisibility(View.VISIBLE);
+                                if (!correct[2]) {
+                                    error3.setVisibility(View.VISIBLE);
+                                }
+                            }
+                            if (i == 40) {
+                                lyric4.setVisibility(View.VISIBLE);
+                                if (!correct[3]) {
+                                    error4.setVisibility(View.VISIBLE);
+                                }
+                            }
+                            if (i == 52) {
+                                lyric5.setVisibility(View.VISIBLE);
+                                if (!correct[4]) {
+                                    error5.setVisibility(View.VISIBLE);
+                                }
+                            }
+                            if (i == 65) {
+                                lyric6.setVisibility(View.VISIBLE);
+                                if (!correct[5]) {
+                                    error6.setVisibility(View.VISIBLE);
+                                }
+                            }
+                            if (i == 77) {
+                                lyric7.setVisibility(View.VISIBLE);
+                                if (!correct[6]) {
+                                    error7.setVisibility(View.VISIBLE);
+                                }
+                            }
+                            if (i == 90) {
+                                if (!correct[7]) {
+                                    error8.setVisibility(View.VISIBLE);
+                                }
+                            }
+                            pgsBar.setProgress(i);
                         }
 
                         pgsBar.setProgress(0);
