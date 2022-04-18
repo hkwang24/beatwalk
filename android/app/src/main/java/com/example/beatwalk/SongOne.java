@@ -27,7 +27,6 @@ public class SongOne extends AppCompatActivity {
 
     private ProgressBar pgsBar;
     private int i = 0;
-    public static Handler hndler;
     private boolean passes = true;
     private Bluetooth btHandler;
 
