@@ -14,19 +14,27 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.beatwalk.R;
+import com.example.beatwalk.bluetooth.Bluetooth;
 import com.example.beatwalk.data.RegistrationStore;
 import com.example.beatwalk.data.RegistrationStoreMongo;
 
 public class SongOne extends AppCompatActivity {
+
+    Bluetooth btHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_song_one);
 
+        btHandler = new Bluetooth();
+        btHandler.setup();
+
         Button button= (Button)findViewById(R.id.update_button);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
+                String msg = btHandler.getMessage();
 
                 char[] notes = {'c', 'b', ' ', 'a', ' ', ' ', 'e', 'f'};
                 char[] rhythm = {'q','h', ' ', 'h', ' ', 'r', 'q', 'q'};

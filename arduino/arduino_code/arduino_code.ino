@@ -75,6 +75,7 @@ void playOnce() {
   // throughout loop check stop pin
   for (int i = 0; i < 16; i++) {
     digitalWrite(i, HIGH);
+    // check stop pin here
   }
 }
 
