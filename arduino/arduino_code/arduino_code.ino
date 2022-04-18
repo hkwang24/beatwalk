@@ -1,6 +1,5 @@
 // bluetooth module
 #include <SoftwareSerial.h>
-#include "Thread.h"
 SoftwareSerial BT(2, 3);
 
 void setup() {

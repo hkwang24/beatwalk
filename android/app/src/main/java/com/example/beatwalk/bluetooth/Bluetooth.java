@@ -18,7 +18,7 @@ import java.util.Set;
 import java.util.UUID;
 
 public class Bluetooth extends AppCompatActivity {
-    BluetoothAdapter bluetoothAdapter;
+    BluetoothAdapter bt;
     private Handler handler; // handler that gets info from Bluetooth service
     private ConnectedThread ct;
 
@@ -29,7 +29,7 @@ public class Bluetooth extends AppCompatActivity {
     }
 
     public void setup() {
-        BluetoothAdapter bt = BluetoothAdapter.getDefaultAdapter();
+        bt = BluetoothAdapter.getDefaultAdapter();
         if (bt == null) {
             // Device doesn't support Bluetooth
             // TODO
@@ -37,13 +37,14 @@ public class Bluetooth extends AppCompatActivity {
         if (!bt.isEnabled()) {
             Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
             startActivityForResult(enableBtIntent, 2);
-            setThread();
         }
+        System.out.println("Got here");
+        setThread();
         // TODO: check whether permission was granted
     }
 
     public ConnectedThread setThread() {
-        Set<BluetoothDevice> pairedDevices = bluetoothAdapter.getBondedDevices();
+        Set<BluetoothDevice> pairedDevices = bt.getBondedDevices();
         if (pairedDevices.size() > 0) {
             for (BluetoothDevice device : pairedDevices) {
                 String deviceName = device.getName();
@@ -65,7 +66,12 @@ public class Bluetooth extends AppCompatActivity {
     }
 
     public String getMessage() {
-        return handler.obtainMessage().toString();
+        System.out.println("CHECK BLUETOOTH");
+        if (handler.hasMessages(0)) {
+            return handler.obtainMessage().toString();
+        } else {
+            return "";
+        }
     }
 
     private class ConnectedThread extends Thread {

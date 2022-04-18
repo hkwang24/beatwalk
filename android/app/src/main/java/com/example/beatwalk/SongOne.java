@@ -28,13 +28,16 @@ public class SongOne extends AppCompatActivity {
         setContentView(R.layout.content_song_one);
 
         btHandler = new Bluetooth();
+        System.out.println("Trying to set up bluetooth");
         btHandler.setup();
+        System.out.println("Bluetooth setup");
 
         Button button= (Button)findViewById(R.id.update_button);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
-                String msg = btHandler.getMessage();
+//                System.out.println("BUTTON PRESSED");
+//
+//                String msg = btHandler.getMessage();
 
                 char[] notes = {'c', 'b', ' ', 'a', ' ', ' ', 'e', 'f'};
                 char[] rhythm = {'q','h', ' ', 'h', ' ', 'r', 'q', 'q'};
