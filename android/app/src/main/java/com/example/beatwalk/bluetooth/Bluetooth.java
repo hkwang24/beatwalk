@@ -2,14 +2,19 @@ package com.example.beatwalk.bluetooth;
 
 import static androidx.core.app.ActivityCompat.startActivityForResult;
 
+import android.Manifest;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Handler;
 import android.os.Message;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -21,6 +26,7 @@ public class Bluetooth extends AppCompatActivity {
     BluetoothAdapter bt;
     private Handler handler; // handler that gets info from Bluetooth service
     private ConnectedThread ct;
+    private ActivityResultLauncher<String> requestPermissionLauncher;
 
     private interface MessageConstants {
         public static final int MESSAGE_READ = 0;
@@ -29,18 +35,34 @@ public class Bluetooth extends AppCompatActivity {
     }
 
     public void setup() {
-        bt = BluetoothAdapter.getDefaultAdapter();
-        if (bt == null) {
-            // Device doesn't support Bluetooth
-            // TODO
-        }
-        if (!bt.isEnabled()) {
-            Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-            startActivityForResult(enableBtIntent, 2);
-        }
-        System.out.println("Got here");
-        setThread();
-        // TODO: check whether permission was granted
+        System.out.println("launching setup func");
+        requestPermissionLauncher =
+            registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
+                if (isGranted) {
+                    System.out.println("GRANTED");
+                    bt = BluetoothAdapter.getDefaultAdapter();
+                    if (bt == null) {
+                        // Device doesn't support Bluetooth
+                        // TODO
+                    }
+                    if (!bt.isEnabled()) {
+                        Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+                        startActivityForResult(enableBtIntent, 2);
+                    }
+                    System.out.println("Got here");
+                    setThread();
+                } else {
+                    System.out.println("NOT GRANTED");
+                    // Explain to the user that the feature is unavailable because the
+                    // features requires a permission that the user has denied. At the
+                    // same time, respect the user's decision. Don't link to system
+                    // settings in an effort to convince the user to change their
+                    // decision.
+                }
+            });
+        System.out.println("checking permission");
+        requestPermissionLauncher.launch(
+                    Manifest.permission.BLUETOOTH_ADMIN);
     }
 
     public ConnectedThread setThread() {

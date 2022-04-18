@@ -36,19 +36,15 @@ public class SongOne extends AppCompatActivity {
         btHandler = new Bluetooth();
         System.out.println("Trying to set up bluetooth");
         btHandler.setup();
-        System.out.println("Bluetooth setup");
 
         pgsBar = (ProgressBar) findViewById(R.id.pBar);
-
-        // btHandler = new Bluetooth();
-        // btHandler.setup();
 
         Button button= (Button)findViewById(R.id.update_button);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-//                System.out.println("BUTTON PRESSED");
+//              System.out.println("BUTTON PRESSED");
 //
-//                String msg = btHandler.getMessage();
+//              String msg = btHandler.getMessage();
 
                 char[] notes = {'c', 'b', ' ', 'a', ' ', ' ', 'e', 'f'};
                 char[] rhythm = {'q','h', ' ', 'h', ' ', 'r', 'q', 'q'};

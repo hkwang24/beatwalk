@@ -2,7 +2,7 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.6">
-      <module name="Beatwalk.app" target="11" />
+      <module name="beatwalk.app" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>
