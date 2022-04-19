@@ -1,37 +1,35 @@
 package com.example.beatwalk.bluetooth;
 
-import static androidx.core.app.ActivityCompat.startActivityForResult;
-
-import android.Manifest;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
-import android.content.Intent;
-import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Handler;
-import android.os.Looper;
 import android.os.Message;
+import android.os.SystemClock;
 import android.util.Base64;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
+
+import com.example.beatwalk.SongOne;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.Set;
 import java.util.Stack;
 import java.util.UUID;
 
-public class Bluetooth extends AppCompatActivity {
+public class Bluetooth {
     BluetoothAdapter bt;
     public Handler handler; // handler that gets info from Bluetooth service
     public ConnectedThread ct;
-    private ActivityResultLauncher<String> requestPermissionLauncher;
+    public BluetoothDevice btd;
     Stack<String> msgs;
+    public BluetoothSocket bts;
+    public boolean waiting = false;
 
     private interface MessageConstants {
         public static final int MESSAGE_READ = 0;
@@ -41,10 +39,40 @@ public class Bluetooth extends AppCompatActivity {
     public void setup() {
         System.out.println("launching setup func");
         bt = BluetoothAdapter.getDefaultAdapter();
-        setThread();
+        msgs = new Stack<String>();
+        msgs.add("start");
+        btd = searchDevice();
+        UUID uuid = btd.getUuids()[0].getUuid();
+        System.out.println("device uuid: " + uuid.toString());
+        try {
+            bts = btd.createInsecureRfcommSocketToServiceRecord(uuid);
+        } catch (Exception e) {
+            System.out.println("Error creating socket");
+        }
+        try {
+            bts.connect();
+        } catch (IOException e) {
+            System.out.println("connection failed");
+            try {
+                System.out.println("backup connect");
+                bts =(BluetoothSocket) btd.getClass().getMethod("createRfcommSocket", new Class[] {int.class}).invoke(btd,1);
+                bts.connect();
+            } catch (Exception ee) {
+                System.out.println(ee);
+            }
+        }
     }
 
-    public void setThread() {
+    public void start() {
+        try {
+            ct = new ConnectedThread(bts);
+            ct.start();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public BluetoothDevice searchDevice() {
         Set<BluetoothDevice> pairedDevices = bt.getBondedDevices();
         if (pairedDevices.size() > 0) {
             for (BluetoothDevice device : pairedDevices) {
@@ -53,30 +81,29 @@ public class Bluetooth extends AppCompatActivity {
                 // maybe check if its arduino
                 System.out.println("Device Name:" + deviceName);
                 if (deviceName.equals("DSD TECH HC-05")) {
-                    BluetoothAdapter btAdapter = BluetoothAdapter.getDefaultAdapter();
-                    BluetoothDevice btDevice = btAdapter.getRemoteDevice(deviceAddress);
-                    UUID uuid = btDevice.getUuids()[0].getUuid();
-                    try {
-                        ct = new ConnectedThread(btDevice.createInsecureRfcommSocketToServiceRecord(uuid));
-                        ct.run();
-                        System.out.println("running thread");
-                    } catch (Exception e) {
-
-                    }
-                    return;
+                    bt = BluetoothAdapter.getDefaultAdapter();
+                    return bt.getRemoteDevice(deviceAddress);
                 }
             }
         }
-        return;
+        return null;
     }
 
     public String getMessage() {
         System.out.println("CHECK MESSAGES");
         if (msgs.size() > 0) {
-            return msgs.pop();
+            String result = msgs.pop();
+            msgs = new Stack<String>();
+            msgs.add("start");
+            waiting = false;
+            return result;
         } else {
             return "NO_MSG";
         }
+    }
+
+    public boolean hasMessage() {
+        return waiting;
     }
 
     private class ConnectedThread extends Thread {
@@ -90,14 +117,20 @@ public class Bluetooth extends AppCompatActivity {
             InputStream tmpIn = null;
             OutputStream tmpOut = null;
 
+            System.out.println("ConnectedThread constructor");
+
             try {
                 tmpIn = socket.getInputStream();
+                System.out.println("got input stream");
             } catch (IOException e) {
+                System.out.println("input socket fail");
                 // TODO: catch this exception
             }
             try {
                 tmpOut = socket.getOutputStream();
+                System.out.println("got output stream");
             } catch (IOException e) {
+                System.out.println("output socket fail");
                 // TODO: catch this exception
             }
 
@@ -105,22 +138,49 @@ public class Bluetooth extends AppCompatActivity {
             mmOutStream = tmpOut;
         }
 
+        @RequiresApi(api = Build.VERSION_CODES.KITKAT)
         public void run() {
-            mmBuffer = new byte[1024];
             int numBytes;
+            String inter = "";
+            boolean hasInter = false;
             while (true) {
-                System.out.println("RUNNING THREAD");
                 try {
-                    numBytes = mmInStream.read(mmBuffer);
-                    if (numBytes > 0) {
-                        String curr_msg = Base64.encodeToString(mmBuffer, 0);
-                        msgs.push(curr_msg);
+                    if (mmInStream.available() > 0) {
+                        mmBuffer = new byte[1024];
+                        numBytes = mmInStream.read(mmBuffer);
+                        if (numBytes > 0) {
+                            String curr_msg = new String(mmBuffer.clone(), StandardCharsets.UTF_8);
+                            String strip = curr_msg.replaceAll("[^\\d,;]", "");
+                            System.out.println("start msg");
+                            if (strip.split(",").length != 16) {
+                                if (hasInter) {
+                                    String new_msg = inter + strip;
+                                    System.out.println(new_msg);
+                                    System.out.flush();
+                                    msgs.push(new_msg);
+                                    waiting = true;
+                                    hasInter = false;
+                                } else {
+                                    hasInter = true;
+                                    inter = strip;
+                                }
+                            } else {
+                                hasInter = false;
+                                inter = "";
+                                System.out.println(strip);
+                                System.out.flush();
+                                msgs.push(strip);
+                                waiting = true;
+                                System.out.println("Stack size: " + Integer.toString(msgs.size()));
+                            }
+                        }
+                        SystemClock.sleep(300);
+                    } else {
+                        SystemClock.sleep(400);
                     }
-//                    Message readMsg = handler.obtainMessage(
-//                            MessageConstants.MESSAGE_READ, numBytes, -1,
-//                            mmBuffer
                 } catch (IOException e) {
                     System.out.println("Something broke");
+                    System.out.println(e);
                     // TODO: catch exception
                     break;
                 }

@@ -269,6 +269,17 @@
         android:visibility="invisible"
         />
 
+    <ImageView
+        android:id="@+id/hnote_pos8"
+        android:layout_width="79dp"
+        android:layout_height="56.03dp"
+        android:translationX="310dp"
+        android:translationY="21dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/half_note"
+        android:visibility="invisible"
+        />
+
     <ProgressBar
         android:id="@+id/pBar"
         style="?android:attr/progressBarStyleHorizontal"
@@ -448,14 +459,6 @@
         android:translationY="120dp"
         android:visibility="invisible"
          />
-
-    <Button
-        android:id="@+id/update_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="Update Blocks"
-        android:translationY="600dp" />
 
     <ImageView
         android:id="@+id/try_again"
