@@ -84,7 +84,7 @@ public class SongOne extends AppCompatActivity {
     //functin takes int returns char
 
     public char getValue(int i) {
-        if (620 <= i && i <= 631) {
+        if (620 <= i && i <= 635) {
             return 'q';
         } else if (405 <= i && i <= 415) {
             return 'h';
