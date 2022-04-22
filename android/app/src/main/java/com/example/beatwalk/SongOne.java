@@ -24,7 +24,6 @@ import com.example.beatwalk.data.RegistrationStoreMongo;
 
 public class SongOne extends AppCompatActivity {
 
-
     private ProgressBar pgsBar;
     private int i = 0;
     private boolean passes = true;
@@ -48,6 +47,7 @@ public class SongOne extends AppCompatActivity {
         pgsBar = (ProgressBar) findViewById(R.id.pBar);
 
         Button button= (Button)findViewById(R.id.update_button);
+<<<<<<< Updated upstream
 
 
         viewHandler = new Handler();
@@ -129,6 +129,17 @@ public class SongOne extends AppCompatActivity {
                 char[] notes = input[1];
                 char[] rhythm = input[0];
 
+=======
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+              System.out.println("BUTTON PRESSED");
+//
+              String msg = btHandler.getMessage();
+              System.out.println(msg);
+
+                char[] notes = {'c', 'b', ' ', 'a', ' ', ' ', 'e', 'f'};
+                char[] rhythm = {'q','h', ' ', 'h', ' ', 'r', 'q', 'q'};
+>>>>>>> Stashed changes
                 int[] note_ids = {R.id.let_pos1, R.id.let_pos2, R.id.let_pos3, R.id.let_pos4, R.id.let_pos5, R.id.let_pos6, R.id.let_pos7, R.id.let_pos8};
                 int[] q_note_ids = {R.id.qnote_pos1, R.id.qnote_pos2, R.id.qnote_pos3, R.id.qnote_pos4, R.id.qnote_pos5, R.id.qnote_pos6, R.id.qnote_pos7, R.id.qnote_pos8};
                 int[] h_note_ids = {R.id.hnote_pos1, R.id.hnote_pos2, R.id.hnote_pos3, R.id.hnote_pos4, R.id.hnote_pos5, R.id.hnote_pos6, R.id.hnote_pos7, R.id.hnote_pos8};
