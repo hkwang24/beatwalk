@@ -90,7 +90,7 @@ char getValue(int i) {
     return 'g';
   } else if (695 <= i && i <= 700) {
     return 'b';
-  } else if (836 <= i && i <= 845) {
+  } else if (735 <= i && i <= 845) {
     return 'f';
   } else {
     return ' ';
@@ -174,14 +174,12 @@ void play(int blocks[]) {
   char p;
   boolean playedHalf = false;
   int led = 5;
+  turnOffLED();
   for (int i = 0; i < 16; i+=2) {
     if (digitalRead(A0) == LOW) {
       looping = false;
       turnOffLED();
       break;
-    }
-    if (led > 5) {
-      digitalWrite(led-1, LOW);
     }
     boolean gotRhythm = false;
     if (getValue(blocks[i]) == 'q' ||
@@ -198,35 +196,38 @@ void play(int blocks[]) {
       r = getValue(blocks[i+1]);
     }
 
-    if (playedHalf) {
-      playedHalf = false;
-      continue;
-    }
     if (digitalRead(A0) == LOW) {
       looping = false;
       turnOffLED();
       break;
     }
 
-    if (r == 'q') {
+    if (playedHalf) {
       playedHalf = false;
-      playNote(p, false);
-    } else if (r == 'h') {
-      playNote(p, true);
-      playedHalf = true;
-    } else if (r == ' ') {
-      playedHalf = false;
+      turnOffLED();
+    } else {
+      if (r == 'q') {
+        playedHalf = false;
+        playNote(p, false);
+      } else if (r == 'h') {
+        playNote(p, true);
+        playedHalf = true;
+      } else if (r == ' ') {
+        playedHalf = false;
+      }  
     }
+    
     if (led == 12) {
       digitalWrite(13, HIGH);
     } else {
       digitalWrite(led, HIGH);
     }
     led++;
-    delay(1500);
+    delay(700);
+    turnOffLED();
     flushInput();
   }
-  digitalWrite(13, LOW);
+  turnOffLED();
 }
 
 void flushInput() {
