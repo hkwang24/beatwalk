@@ -66,10 +66,10 @@ public class SongOne extends AppCompatActivity {
         char[][] output = new char[2][8];
         for (int i = 0; i < 8; i++) {
             char val = getValue(Integer.parseInt(arr[counter]));
-            System.out.println(val + "is letter: " + Arrays.binarySearch(letters, val));
+            //System.out.println(val + "is letter: " + Arrays.binarySearch(letters, val));
             counter++;
             char val2 = getValue(Integer.parseInt(arr[counter]));
-            System.out.println(val2 + "is note " + Arrays.binarySearch(notes, val2));
+            //System.out.println(val2 + "is note " + Arrays.binarySearch(notes, val2));
 
             if(Arrays.binarySearch(letters, val) >= 0 && Arrays.binarySearch(notes, getValue(Integer.parseInt(arr[counter]))) >= 0 ) {
                 val = getValue(Integer.parseInt(arr[counter]));

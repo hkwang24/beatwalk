@@ -10,6 +10,8 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Arrays;
+
 public class ExploreActivity extends AppCompatActivity {
 
     private ProgressBar pgsBar;
@@ -27,11 +29,14 @@ public class ExploreActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                char[] notes = {' ', 'b', 'c', 'd', 'e', 'c', 'g', 'f'};
-                char[] rhythm = {'r','q', 'q', 'q', 'q', 'q', 'q', 'q'};
+                String input = "630,910,910,630,410,890,410,0,1015,410,410,0,0,174,630,910;";
+                char[][] parsed = parseInput(input);
+
+                char[] notes = parsed[1];
+                char[] rhythm = parsed[0];
                 int[] note_ids = {R.id.let_pos1, R.id.let_pos2, R.id.let_pos3, R.id.let_pos4, R.id.let_pos5, R.id.let_pos6, R.id.let_pos7, R.id.let_pos8};
                 int[] q_note_ids = {R.id.qnote_pos1, R.id.qnote_pos2, R.id.qnote_pos3, R.id.qnote_pos4, R.id.qnote_pos5, R.id.qnote_pos6, R.id.qnote_pos7, R.id.qnote_pos8};
-                int[] h_note_ids = {R.id.hnote_pos1, R.id.hnote_pos2, R.id.hnote_pos3, R.id.hnote_pos4, R.id.hnote_pos5, R.id.hnote_pos6, R.id.hnote_pos7};
+                int[] h_note_ids = {R.id.hnote_pos1, R.id.hnote_pos2, R.id.hnote_pos3, R.id.hnote_pos4, R.id.hnote_pos5, R.id.hnote_pos6, R.id.hnote_pos7, R.id.hnote_pos8};
                 int[] notation = {R.id.notation1, R.id.notation2, R.id.notation3, R.id.notation4, R.id.notation5, R.id.notation6, R.id.notation7, R.id.notation8};
 
                 for (int i = 0; i < notes.length; i++) {
@@ -73,6 +78,9 @@ public class ExploreActivity extends AppCompatActivity {
                         note_block.setVisibility(View.VISIBLE);
                         notation_index.setTranslationY(552);
                         notation_index.setVisibility(View.VISIBLE);
+                    } else {
+                        note_block.setVisibility(View.INVISIBLE);
+                        notation_index.setVisibility(View.INVISIBLE);
                     }
                 }
 
@@ -105,6 +113,12 @@ public class ExploreActivity extends AppCompatActivity {
                         }
                         notation_index.setVisibility(View.VISIBLE);
 
+                    } else {
+                        notation_index.setVisibility(View.INVISIBLE);
+                        ImageView rhy_block1 = (ImageView) findViewById(q_note_ids[i]);
+                        rhy_block1.setVisibility(View.INVISIBLE);
+                        ImageView rhy_block2 = (ImageView) findViewById(h_note_ids[i]);
+                        rhy_block2.setVisibility(View.INVISIBLE);
                     }
                 }
 
@@ -132,5 +146,66 @@ public class ExploreActivity extends AppCompatActivity {
                 }).start();
             }
         });
+    }
+    public char[][] parseInput(String str) {
+        int counter = 0;
+        String remove_semicolon = str.substring(0, str.length()-1);
+        String[] arr = remove_semicolon.split(",");
+        //System.out.println(arr);
+        char[] notes = {' ', 'h', 'q', 'r'};
+        char[] letters = {' ', 'a', 'b', 'c', 'd','e', 'f', 'g'};
+        char[][] output = new char[2][8];
+        for (int i = 0; i < 8; i++) {
+            char val = getValue(Integer.parseInt(arr[counter]));
+            System.out.println(val + "is letter: " + Arrays.binarySearch(letters, val));
+            counter++;
+            char val2 = getValue(Integer.parseInt(arr[counter]));
+            System.out.println(val2 + "is note " + Arrays.binarySearch(notes, val2));
+
+            if(Arrays.binarySearch(letters, val) >= 0 && Arrays.binarySearch(notes, getValue(Integer.parseInt(arr[counter]))) >= 0 ) {
+                val = getValue(Integer.parseInt(arr[counter]));
+                String temp = arr[counter - 1];
+                arr[counter] = temp;
+            }
+            output[0][i] = val;
+
+            if (val == 'r') {
+                output[1][i] = ' ';
+            } else if (val == 'h') {
+                output[1][i] = getValue(Integer.parseInt(arr[counter]));
+                if (counter+1 < 16) {
+                    arr[counter+1] = "0";
+                }
+            } else {
+                output[1][i] = getValue(Integer.parseInt(arr[counter]));
+            }
+            counter++;
+        }
+
+        return output;
+    }
+
+    public char getValue(int i) {
+        if (620 <= i && i <= 635) {
+            return 'q';
+        } else if (405 <= i && i <= 415) {
+            return 'h';
+        } else if (172 <= i && i <= 180) {
+            return 'r';
+        } else if (900 <= i && i <= 940) {
+            return 'e';
+        } else if (885 <= i && i <= 892) {
+            return 'd';
+        } else if (1010 <= i && i <= 1020) {
+            return 'c';
+        } else if (89 <= i && i <= 97) {
+            return 'g';
+        } else if (695 <= i && i <= 700) {
+            return 'b';
+        } else if (836 <= i && i <= 845) {
+            return 'f';
+        } else {
+            return ' ';
+        }
     }
 }

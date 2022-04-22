@@ -268,6 +268,17 @@
         android:visibility="invisible"
         />
 
+    <ImageView
+        android:id="@+id/hnote_pos8"
+        android:layout_width="79dp"
+        android:layout_height="56.03dp"
+        android:translationX="310dp"
+        android:translationY="21dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/half_note"
+        android:visibility="invisible"
+        />
+
     <ProgressBar
         android:id="@+id/pBar"
         style="?android:attr/progressBarStyleHorizontal"
