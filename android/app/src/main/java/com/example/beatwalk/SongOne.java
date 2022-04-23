@@ -40,6 +40,7 @@ public class SongOne extends AppCompatActivity {
 
         btHandler = new Bluetooth();
         System.out.println("Trying to set up bluetooth");
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.BLUETOOTH_ADMIN}, 0);
         btHandler.setup();
         System.out.println("setup complete");
         btHandler.start();
@@ -47,8 +48,6 @@ public class SongOne extends AppCompatActivity {
         // CHECKING PERMISSIONS HERE
 
         pgsBar = (ProgressBar) findViewById(R.id.pBar);
-
-        Button button= (Button)findViewById(R.id.update_button);
 
 
         viewHandler = new Handler();
@@ -62,14 +61,14 @@ public class SongOne extends AppCompatActivity {
         String[] arr = remove_semicolon.split(",");
         //System.out.println(arr);
         char[] notes = {' ', 'h', 'q', 'r'};
-        char[] letters = {' ', 'a', 'b', 'c', 'd','e', 'f', 'g'};
+        char[] letters = {'a', 'b', 'c', 'd','e', 'f', 'g'};
         char[][] output = new char[2][8];
         for (int i = 0; i < 8; i++) {
             char val = getValue(Integer.parseInt(arr[counter]));
-            //System.out.println(val + "is letter: " + Arrays.binarySearch(letters, val));
+            System.out.println(val + "is letter: " + Arrays.binarySearch(letters, val));
             counter++;
             char val2 = getValue(Integer.parseInt(arr[counter]));
-            //System.out.println(val2 + "is note " + Arrays.binarySearch(notes, val2));
+            System.out.println(val2 + "is note " + Arrays.binarySearch(notes, val2));
 
             if(Arrays.binarySearch(letters, val) >= 0 && Arrays.binarySearch(notes, getValue(Integer.parseInt(arr[counter]))) >= 0 ) {
                 val = getValue(Integer.parseInt(arr[counter]));
@@ -90,7 +89,9 @@ public class SongOne extends AppCompatActivity {
             }
             counter++;
         }
-
+        for (int i = 0; i < output[0].length; i++) {
+            System.out.println(output[0][i] + ", " + output[1][i]);
+        }
         return output;
     }
 
@@ -101,19 +102,21 @@ public class SongOne extends AppCompatActivity {
             return 'q';
         } else if (405 <= i && i <= 415) {
             return 'h';
-        } else if (172 <= i && i <= 180) {
+        } else if (170 <= i && i <= 180) {
             return 'r';
         } else if (900 <= i && i <= 940) {
             return 'e';
-        } else if (885 <= i && i <= 892) {
+        } else if (870 <= i && i <= 892) {
             return 'd';
-        } else if (1010 <= i && i <= 1020) {
+        } else if (1000 <= i && i <= 1020) {
             return 'c';
         } else if (89 <= i && i <= 97) {
             return 'g';
-        } else if (695 <= i && i <= 700) {
+        } else if (685 <= i && i <= 700) {
             return 'b';
-        } else if (836 <= i && i <= 845) {
+        } else if (500 <= i && i <= 520) {
+            return 'a';
+        } else if (735 <= i && i <= 845) {
             return 'f';
         } else {
             return ' ';
@@ -196,7 +199,7 @@ public class SongOne extends AppCompatActivity {
                     }
 
                     char[][] input2 = {notes, rhythm};
-                    char[] expected_letters = {'e', 'd', 'c', 'd', 'e', 'e', 'e', ' '};
+                    char[] expected_letters = {'e', 'd', 'c', 'd', 'e', 'e', 'e', 'h'};
                     char[] expected_notes = {'q', 'q', 'q', 'q', 'q', 'q', 'h', ' '};
                     char[][] expected = {expected_letters, expected_notes};
                     final boolean[] correct = checkSong(input2, expected);
@@ -223,6 +226,7 @@ public class SongOne extends AppCompatActivity {
 
                     for (int i = 0; i < 8; i++) {
                         if (!correct[i]) {
+                            System.out.println("false: " + i);
                             passes = false;
                         }
                     }
@@ -332,9 +336,9 @@ public class SongOne extends AppCompatActivity {
                         }
                     }).start();
                 }
-                hdlr.postDelayed(this, 1000);
+                hdlr.postDelayed(this, 300);
             }
 
-        }, 1000);
+        }, 500);
     }
 }
