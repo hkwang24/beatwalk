@@ -35,10 +35,10 @@ void setup() {
   pinMode(12, INPUT_PULLUP);
 
   if (!sfx.reset()) {
-    Serial.println("Not found");
+//    Serial.println("Not found");
     while (1);
   } else {
-    Serial.println("SFX board found");
+//    Serial.println("SFX board found");
   }
 }
 
@@ -48,6 +48,7 @@ boolean looping = false;
 void loop() {
   checkNewBlocks();
   if (digitalRead(A1) == LOW) {
+      delay(800);
       int blocks[16];
       checkBlocks(blocks);
       sendData(blocks); 
@@ -55,6 +56,7 @@ void loop() {
       delay(1000);
   }
   while (looping) {
+      delay(800);
       int blocks[16];
       checkBlocks(blocks);
       sendData(blocks); 
@@ -90,8 +92,10 @@ char getValue(int i) {
     return 'g';
   } else if (695 <= i && i <= 700) {
     return 'b';
-  } else if (836 <= i && i <= 845) {
+  } else if (735 <= i && i <= 845) {
     return 'f';
+   } else if (500 <= i && i <= 520) {
+    return 'a';
   } else {
     return ' ';
   }
@@ -151,10 +155,10 @@ void playNote (char note, boolean half) {
       break;
   }
   if (!played) {
-    Serial.println("Failed to play track");
-    Serial.println(note);
+//    Serial.println("Failed to play track");
+//    Serial.println(note);
   } else {
-    Serial.println(note);
+//    Serial.println(note);
   }
 }
 
@@ -169,19 +173,17 @@ void turnOffLED() {
 }
 
 void play(int blocks[]) {
-  Serial.println("Playing blocks");
+//  Serial.println("Playing blocks");
   char r;
   char p;
   boolean playedHalf = false;
   int led = 5;
+  turnOffLED();
   for (int i = 0; i < 16; i+=2) {
     if (digitalRead(A0) == LOW) {
       looping = false;
       turnOffLED();
       break;
-    }
-    if (led > 5) {
-      digitalWrite(led-1, LOW);
     }
     boolean gotRhythm = false;
     if (getValue(blocks[i]) == 'q' ||
@@ -198,35 +200,38 @@ void play(int blocks[]) {
       r = getValue(blocks[i+1]);
     }
 
-    if (playedHalf) {
-      playedHalf = false;
-      continue;
-    }
     if (digitalRead(A0) == LOW) {
       looping = false;
       turnOffLED();
       break;
     }
 
-    if (r == 'q') {
+    if (playedHalf) {
       playedHalf = false;
-      playNote(p, false);
-    } else if (r == 'h') {
-      playNote(p, true);
-      playedHalf = true;
-    } else if (r == ' ') {
-      playedHalf = false;
+      turnOffLED();
+    } else {
+      if (r == 'q') {
+        playedHalf = false;
+        playNote(p, false);
+      } else if (r == 'h') {
+        playNote(p, true);
+        playedHalf = true;
+      } else if (r == ' ') {
+        playedHalf = false;
+      }  
     }
+    
     if (led == 12) {
       digitalWrite(13, HIGH);
     } else {
       digitalWrite(led, HIGH);
     }
     led++;
-    delay(1500);
+    delay(700);
+    turnOffLED();
     flushInput();
   }
-  digitalWrite(13, LOW);
+  turnOffLED();
 }
 
 void flushInput() {
@@ -288,7 +293,7 @@ void checkNewBlocks() {
     if (c == 'q' || c == 'h' || c == 'r') {
     } else if (c != ' ') {
       if (!block_found[i]) {
-        Serial.println("New block found");
+//        Serial.println("New block found");
       int ledNumb = 5 + (i / 2);
       if (ledNumb == 12) {
         digitalWrite(13, HIGH);
