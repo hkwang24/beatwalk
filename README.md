@@ -1,1 +1,2 @@
 # beatwalk
+Beatblocks is a tangible user interface designed to promote remote music learning for children. The system uses physical instrument blocks and real-time software feedback to make music education more engaging and accessible. Developed as a senior thesis project, it combines hardware interfacing, data tracking, and interactive lesson design to support early-stage learners—especially those without access to traditional instruction.
